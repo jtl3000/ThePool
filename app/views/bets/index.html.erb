@@ -1,0 +1,80 @@
+<h1 style="margin: 75px 0 40px 0;">Here's what everyone else thinks</h1>
+
+<table class="hero-unit">
+  <tr>
+    <th>Bet ID</th>
+    <th>Display Name</th>
+    <th>Engaged By?</th>
+    <th>Married By?</th>
+    <th>Wedding Postponed?</th>
+    <th>New Married By?</th>
+    <th>Divorced?</th>
+    <th>Divorced By?</th>
+  </tr>
+
+<% @bets.each do |bet| %>
+
+
+  <tr>
+    <td><%= bet.id %></td>
+    <td><%= bet.displayname %></td>
+    <td>Last day of <%= bet.engagement.strftime("%b, %Y") %></td>
+    <td>Last day of <%= bet.wedding.strftime("%b, %Y") %></td>
+    <td><%= bet.postponement %></td>
+    <td>Last day of <%= bet.new_wedding %></td>
+    <td><%= bet.divorce %></td>
+    <td>Last day of <%= bet.divorced_by.strftime("%b, %Y") %></td>
+    <td><%= link_to 'Show', bet %></td>
+    <td><%= link_to 'Edit', edit_bet_path(bet) %></td>
+    <td><%= link_to 'Destroy', bet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+
+</table>
+
+<% @bets.each do |bet| %>
+
+<table class="hero-unit">
+  <tr>
+    <th class="pull-left" style="padding: 10px 0 0 10px;">Bet ID</th>
+        <tr>
+            <td style="padding: 0 0 0 10px;"><%= bet.id %></td>
+        </tr>
+    <th class="pull-left" style="padding: 10px 0 0 10px;">Display Name</th>
+        <tr>
+            <td style="padding: 0 0 0 10px;"><%= bet.displayname %></td>
+        </tr>
+    <th class="pull-left" style="padding: 10px 0 0 10px;">Engaged By?</th>
+        <tr>
+            <td style="padding: 0 0 0 10px;">Last day of <%= bet.engagement.strftime("%b, %Y") %></td>
+        </tr>
+    <th class="pull-left" style="padding: 10px 0 0 10px;">Married By?</th>
+        <tr>
+            <td style="padding: 0 0 0 10px;">Last day of <%= bet.wedding.strftime("%b, %Y") %></td>
+        </tr>
+    <th class="pull-left" style="padding: 10px 0 0 10px;">Wedding Postponed?</th>
+        <tr>
+            <td style="padding: 0 0 0 10px;"><%= bet.postponement %></td>
+        </tr>
+    <th class="pull-left" style="padding: 10px 0 0 10px;">New Married By?</th>
+        <tr>
+            <td style="padding: 0 0 0 10px;">Last day of <%= bet.new_wedding %></td>
+        </tr>
+    <th class="pull-left" style="padding: 10px 0 0 10px;">Divorced?</th>
+        <tr>
+            <td style="padding: 0 0 0 10px;"><%= bet.divorce %></td>
+        </tr>
+    <th class="pull-left" style="padding: 10px 0 0 10px;">Divorced By?</th>
+        <tr>
+            <td style="padding: 0 0 10px 10px;">Last day of <%= bet.divorced_by.strftime("%b, %Y") %></td>
+        </tr>
+  </tr>
+
+<% end %>
+
+</table>
+
+
+<br />
+
+<%= link_to 'New Bet', new_bet_path %>

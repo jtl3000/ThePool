@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ThePool</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="container">
+
+ 
+
+<% if user_signed_in? %>
+<p class="lead pull-left" style="margin: 7px 0 0px 0;">What's up, <%= current_user.display_name %></p>
+<% end %>
+
+  <navigation>
+    <ul class="nav nav-pills  pull-right" style="margin-top: 5px;">
+      <li class="active">
+      <li><%= link_to 'Home', root_path %></li>
+      
+      <% if user_signed_in? %>
+
+      <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+      <li><%= link_to 'Place your bet', new_bet_path(user_id: @user) %></li>
+      
+      <% else %>
+       <li><%= link_to 'Login or Register', new_user_registration_path %></li>
+       <% end %>
+
+      <li><%= link_to 'Help', help_path %></li>
+    </ul>
+  </navigation>
+
+<%= yield %>
+
+<footer class="text-center muted">
+  Created by <%= link_to 'Jon Levine', 'http://www.jonlevine.com' %>. &copy; <%= Time.now.year %>
+
+</footer>
+ </div>
+</body>
+</html>

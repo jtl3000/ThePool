@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  engagement: 2013-03-03
+  wedding: 2013-03-03
+  postponement: MyString
+  new_wedding: 2013-03-03
+  divorce: MyString
+  divorced_by: 2013-03-03
+
+two:
+  engagement: 2013-03-03
+  wedding: 2013-03-03
+  postponement: MyString
+  new_wedding: 2013-03-03
+  divorce: MyString
+  divorced_by: 2013-03-03

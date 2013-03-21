@@ -1,0 +1,45 @@
+<form class="form hero-unit">
+<%= semantic_form_for(@bet) do |f| %>
+  <%= f.inputs do %>
+  <% if @bet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bet.errors.count, "error") %> prohibited this bet from being saved:</h2>
+
+      <ul>
+      <% @bet.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+      
+<fieldset>
+  <div class="field">
+
+    <%= f.input :engagement, :label => "They'll be engaged by the end of:", :as => :date_select, :start_month => Time.now.month, :start_year => Time.now.year, :end_year => Time.now.year + 10, :order => [:month, :year] %><br />
+  </div>
+  <div class="field">
+    <%= f.input :wedding, :label => 'The wedding will be by the end of:', :as => :date_select, :start_year => Time.now.year, :end_year => Time.now.year + 10, :order => [:month, :year] %><br />
+  </div>
+  <div class="field">
+    <%= f.input :postponement, :label => 'Will they postpone the wedding?', :as => :radio, :collection => ['Yes', 'No'], :selected =>'Yes' %><br />
+    
+  </div>
+  <div class="field">
+    <%= f.input :new_wedding, :label => 'New wedding will be by the end of:', :as => :date_select, :start_year => Time.now.year, :end_year => Time.now.year + 10, :order => [:month, :year]  %><br />
+  </div>
+  <div class="field">
+   <%= f.input :divorce, :label => 'Will they get divorced?', :as => :radio, :collection => ['Yes', 'No'] %><br />
+  </div>
+  <div class="field">
+    <%= f.input :divorced_by, :label => 'They be divorced by the end of:', :as => :date_select, :start_year => Time.now.year, :end_year => Time.now.year + 10, :order => [:month, :year] %><br />
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+  </fieldset>
+  <% end %>
+<% end %>
+</form>

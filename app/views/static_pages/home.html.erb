@@ -1,0 +1,22 @@
+<div class="hero-unit" style="margin-top: 50px;">
+  <h1>Welcome to The Pool</h1>
+  <p>Just a place where we can wager on the life of an idiot</p>
+  <p>
+    <% if user_signed_in? %>
+    <a class="btn btn-primary btn-large" href=<%= new_bet_path %>>
+      Place your bet
+    </a>
+      <% else %>
+      
+      <a class="btn btn-primary btn-large" href=<%= new_user_registration_path %>>
+      Register
+      </a>
+
+      <a class="btn btn-success btn-large" href=<%= new_user_session_path %>>
+      Login
+      </a> 
+ 
+      <% end %>
+    
+  </p>
+</div>
