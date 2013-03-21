@@ -10,6 +10,7 @@ gem 'activeadmin'
 gem 'coffee-script-source', '~> 1.4.0' # ADD THIS LINE, 1.5.0 doesn't compile ActiveAdmin JavaScript files  
 # gem "formtastic-plus-bootstrap"
 gem 'formtastic-bootstrap'
+# gem 'sprockets', '~> 2.9.0'
 
 # Gems used only for assets and not required
 # in production environments by default.
