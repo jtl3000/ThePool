@@ -37,4 +37,6 @@ ThePool::Application.configure do
 
   config.assets.compile = true
 
+  config.serve_static_assets = false
+
 end
